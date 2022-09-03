@@ -1,41 +1,28 @@
 @import "./reset";
 
-.projects__parent {
-  width: 100%;
-  padding: 0 5em;
-  min-height: 30em;
-  background: rgb(74, 54, 54);
-  &_container {
-    padding: nth($pm, 2) 0;
-    width: 100%;
-    @include flex($align: start);
-    flex-direction: column;
-    &_wrapper {
-      margin: nth($pm, 1) 0;
-      width: 100%;
-      background: rgb(144, 83, 83);
-      border-radius: 8px;
-      & > a {
-        width: 100%;
-        height: 100%;
-        padding: nth($pm, 1);
-      }
-    }
+// ============== About ==============
+
+.about__container {
+  @include flex;
+  flex-direction: column;
+  width: 80%;
+  margin: nth($pm, 2);
+  & > * {
+    text-align: center;
   }
 }
 
 // ============== Tabs ==============
 
-:root {
-  --primary-color: #185ee0;
-  --secondary-color: #e6eef9;
-}
-
 .tabs__container {
   margin: 3em 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @include flex;
+  position: sticky;
+  top: 0%;
+  z-index: 2;
+  width: 100%;
+  background-color: #fff;
+  padding: 3em;
 }
 .tabs {
   display: flex;
@@ -74,16 +61,16 @@ input[type="radio"] {
   height: 2rem;
   margin-left: 0.75rem;
   border-radius: 50%;
-  background-color: var(--secondary-color);
+  background-color: nth($colors, 5);
   transition: 0.15s ease-in;
 }
 
 input[type="radio"] {
   &:checked {
     & + label {
-      color: var(--primary-color);
+      color: nth($colors, 4);
       & > .notification {
-        background-color: var(--primary-color);
+        background-color: nth($colors, 4);
         color: #fff;
       }
     }
@@ -134,7 +121,7 @@ input[id="radio4"] {
   display: flex;
   height: 54px;
   width: 150px;
-  background-color: var(--secondary-color);
+  background-color: nth($colors, 5);
   z-index: 1;
   border-radius: 99px; // just a high number to create pill effect
   transition: 0.25s ease-out;
@@ -148,7 +135,53 @@ input[id="radio4"] {
 
 // ============== Project Tile ==============
 
+.projects__parent {
+  width: 100%;
+  padding: 0 5em;
+  min-height: 30em;
+  background: #466362;
+  &_container {
+    padding: nth($pm, 2) 0;
+    width: 100%;
+    @include flex($align: start);
+    flex-direction: column;
+    &_wrapper {
+      width: 100%;
+      border-radius: 8px;
+    }
+  }
+}
+
 .story__container {
+  &::after {
+    border-left: 3px solid royalblue;
+  }
+  &:hover::after {
+    border-left: 10px solid royalblue;
+  }
+}
+
+.expeeience__container {
+  &::after {
+    border-left: 3px solid turquoise;
+  }
+  &:hover::after {
+    border-left: 10px solid turquoise;
+  }
+}
+
+.gallery__container {
+  &::after {
+    border-left: 3px solid yellow;
+  }
+  &:hover::after {
+    border-left: 10px solid yellow;
+  }
+}
+
+.story__container,
+.experience__container,
+.gallery__container {
   cursor: pointer;
   height: 100%;
   @include flex($align: right);
