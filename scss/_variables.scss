@@ -3,13 +3,19 @@
 // ================= Variables ====================
 
 $base-font: "Roboto Serif", serif;
-$colors: #000, #c1c1c1, #ee534f, #185ee0, #e6eef9;
+$colors: #fff, #d9e6e5, #1e5b4d, #c1c1c1, #1f1c1d, #7a2f30;
+$tips_colors: #e6eef9, #185ee0, #d02020;
+
 $lh: 2em, 4em, 8em;
 $pm: 1em, 2em, 4em, 8em;
 $trans: 0.2s, 0.5s;
 
+$proj_labels: (
+  "story": "#d02020",
+  "experience": "#d02020",
+  "gallery": "#d02020",
+);
 // ================= Mixins ====================
-
 @mixin font($fw: 400, $fs: 1rem, $fc: "inhiret", $deco: none) {
   font-weight: $fw;
   font-size: $fs;

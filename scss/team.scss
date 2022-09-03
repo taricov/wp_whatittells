@@ -1,0 +1,61 @@
+@import "./reset";
+
+.social {
+  display: flex;
+  gap: 0.4em;
+  align-items: center;
+  justify-content: center;
+}
+
+.team__container {
+  @extend .support__container;
+  // flex-direction: row;
+  &_title {
+    @extend .support__container_title;
+  }
+}
+.team__members {
+  width: 100vw;
+  @include flex;
+  flex-wrap: wrap;
+}
+
+.team__member {
+  text-align: center;
+  @include flex($align: right);
+  flex-direction: column;
+  width: 30em;
+  padding: 0 nth($pm, 2);
+  &_img {
+    margin: 0 auto;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    // &:hover {
+    //   background-image: url("../assets/imgs/Donate.gif");
+    // }
+  }
+  &_name {
+    @include font($fw: 700, $fs: 3rem);
+  }
+  &_role {
+    letter-spacing: 0.3rem;
+    background-color: nth($colors, 1);
+    color: nth($colors, 2);
+    width: fit-content;
+    padding: nth($pm, 1) * 0.2;
+    margin: 0 auto;
+  }
+  &_about {
+    text-align: center;
+    margin: 0 auto;
+    padding: nth($pm, 2) 0;
+    width: 80%;
+  }
+  &_socials {
+    @include flex;
+    gap: 1em;
+    margin: 0 0 nth($pm, 1);
+  }
+}

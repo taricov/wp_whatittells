@@ -1,19 +1,59 @@
 @import "./reset";
 
+//TODO: Social media
+//TODO: Team page
+//TODO: Support page
+//TODO: Animation words
+//TODO: Publish all finished proj
+//TODO: border left stories
+//TODO: responsiveness
+//TODO: search bar
+
 .scrollToTopIcon {
   position: fixed;
   cursor: pointer;
   border-radius: 10%;
   padding: nth($pm, 1) * 0.5 nth($pm, 1);
-  background-color: nth($colors, 5);
+  background-color: nth($colors, 3);
   right: 5%;
   bottom: 5%;
-  z-index: 2;
-  background: nth($colors, 3);
+  z-index: 3;
   transition: nth($trans, 1);
+  box-shadow: 1px 1px 11px rgba($color: #000000, $alpha: 0.3);
   i {
-    color: #000000;
+    color: nth($colors, 2);
     font-size: 20px;
+  }
+}
+// ============== Logo ==============
+
+.logo__container {
+  height: fit-content;
+  width: 100%;
+  &_section1 {
+    @include flex($align: flex-end, $just: flex-start);
+    padding: nth($pm, 2) nth($pm, 3);
+    height: 570px;
+    background-color: nth($colors, 2);
+    .logo {
+      svg {
+        cursor: pointer;
+        &:hover path {
+          fill: rgba(nth($colors, 3), 0.8);
+        }
+        path {
+          transition: nth($trans, 1);
+          fill: nth($colors, 3);
+        }
+      }
+    }
+  }
+  &_section2 {
+    @include flex;
+    flex-direction: column;
+    width: 100%;
+    height: 300px;
+    background: nth($colors, 3);
   }
 }
 
@@ -22,10 +62,22 @@
 .about__project_container,
 .about__team_container {
   @include flex;
+  color: nth($colors, 2);
   flex-direction: column;
   width: 80%;
-  margin: nth($pm, 2);
+  height: 100%;
   & > * {
+    text-align: center;
+  }
+}
+.contribute__container {
+  @extend .logo__container_section2;
+  background-color: nth($colors, 2);
+  @include font($fs: 20px, $fw: 600);
+
+  a {
+    margin: nth($pm, 1);
+    width: 200px;
     text-align: center;
   }
 }
@@ -79,16 +131,16 @@ input[type="radio"] {
   height: 2rem;
   margin-left: 0.75rem;
   border-radius: 50%;
-  background-color: nth($colors, 5);
+  background-color: nth($tips_colors, 1);
   transition: 0.15s ease-in;
 }
 
 input[type="radio"] {
   &:checked {
     & + label {
-      color: nth($colors, 4);
+      color: nth($tips_colors, 1);
       & > .notification {
-        background-color: nth($colors, 4);
+        background-color: rgba(nth($colors, 2), 0.3);
         color: #fff;
       }
     }
@@ -139,7 +191,7 @@ input[id="radio4"] {
   display: flex;
   height: 54px;
   width: 150px;
-  background-color: nth($colors, 5);
+  background-color: nth($colors, 3);
   z-index: 1;
   border-radius: 99px; // just a high number to create pill effect
   transition: 0.25s ease-out;
@@ -157,7 +209,7 @@ input[id="radio4"] {
   width: 100%;
   padding: 0 5em;
   min-height: 30em;
-  background: #466362;
+  background: nth($colors, 2);
   &_container {
     padding: nth($pm, 2) 0;
     width: 100%;
@@ -172,10 +224,10 @@ input[id="radio4"] {
 
 .story__container {
   &::after {
-    border-left: 3px solid royalblue;
+    border-left: 3px solid map-get($proj_labels, "story");
   }
   &:hover::after {
-    border-left: 10px solid royalblue;
+    border-left: 10px solid map-get($proj_labels, "story");
   }
 }
 
@@ -206,7 +258,7 @@ input[id="radio4"] {
   margin-bottom: nth($pm, 2);
   flex-direction: column;
   width: 100%;
-  background: rgb(60, 60, 60);
+  background: nth($colors, 3);
   // background-repeat: no-repeat;
   background-position: 100%;
   background-size: cover;
@@ -226,7 +278,7 @@ input[id="radio4"] {
     content: "";
     height: 100%;
     width: 100%;
-    background-color: rgba($color: #000000, $alpha: 0.6);
+    background-color: rgba($color: #000, $alpha: 0.6);
     position: absolute;
     left: 0;
     top: 0;
@@ -275,6 +327,52 @@ input[id="radio4"] {
     &_each {
       font-style: italic;
     }
+  }
+}
+
+.feedback__container {
+  @extend .logo__container_section2;
+  @include font($fs: 18px, $fw: 600);
+  color: nth($colors, 2);
+  &_support {
+    width: 100%;
+    text-align: left;
+  }
+}
+.form__feedback {
+  width: 50%;
+  &_email {
+    @extend %input_boxes;
+    width: 100%;
+    margin: nth($pm, 1) * 0.4 0;
+    padding: 0.4em;
+    &::placeholder {
+      @extend %inner_placeholders;
+    }
+  }
+  &_textarea {
+    @extend %input_boxes;
+    min-height: 5em;
+    padding-top: 0.4em;
+    resize: vertical;
+    &::placeholder {
+      @extend %inner_placeholders;
+    }
+  }
+  &_submit {
+    align-self: end;
+    margin: nth($pm, 1) * 0.5 0 0;
+    background-color: nth($colors, 2);
+    color: nth($colors, 3);
+    transition: 0.3s;
+    width: 150px;
+    &:hover {
+      width: 150px;
+    }
+  }
+  &_res {
+    @include font($fs: 0.9rem);
+    margin-inline: nth($pm, 1);
   }
 }
 

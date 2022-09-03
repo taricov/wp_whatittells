@@ -1,0 +1,174 @@
+@import "./reset";
+
+.support__container {
+  width: 100vw;
+  background-color: nth($colors, 3);
+  @include flex;
+  flex-direction: column;
+  color: nth($colors, 2);
+  padding: calc(100vw - 95vw);
+
+  &_title {
+    font-size: 4rem;
+    position: relative;
+    color: nth($colors, 2);
+    z-index: 3;
+    &::before {
+      content: "";
+      position: absolute;
+      background-image: url("../assets/mark.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 5rem;
+      height: 5rem;
+      top: -0.3em;
+      right: -1em;
+      z-index: -1;
+    }
+  }
+}
+
+.support__donate {
+  @include flex;
+
+  &_para {
+    text-align: center;
+    width: 100%;
+    margin: nth($pm, 2) 0;
+    span {
+      font-size: 2em;
+    }
+  }
+}
+
+.apprciated,
+.fst__method,
+.snd__method,
+.third__method {
+  padding: 0 nth($pm, 2);
+  margin: nth($pm, 2) auto;
+  text-align: center;
+  @include flex;
+  flex-direction: column;
+}
+
+.apprciated {
+  &__para {
+  }
+  &__container {
+    display: block;
+    width: 20%;
+    &_heart {
+      font-size: 4em;
+      color: nth($colors, 3);
+      animation: pulse 2s infinite;
+    }
+  }
+}
+
+.fst__method {
+  width: 100vw;
+  &_coffee {
+  }
+}
+
+.snd__method {
+  &_txt {
+    &_examples {
+      color: var(--body-text-color);
+      @include font($fs: 0.8rem);
+      font-style: italic;
+    }
+  }
+  &_form {
+    &_subscribe {
+      margin: nth($pm, 1);
+      display: block;
+      text-align: center;
+    }
+  }
+}
+
+.third__method {
+  &_txt {
+    &_examples {
+      @include font($fs: 0.8rem);
+      font-style: italic;
+      color: var(--body-text-color);
+    }
+  }
+  &_love_btn {
+    @include flex;
+    width: 100px;
+  }
+
+  &_heart {
+    display: block;
+    width: 100%;
+  }
+  &_counting {
+    margin: nth($pm, 1);
+  }
+}
+
+.label {
+  position: relative;
+  &::before {
+    content: attr(data-num);
+    color: var(--body-text-color);
+    @include font($fs: 0.7rem);
+    position: absolute;
+    top: -0.3em;
+    left: -1em;
+  }
+}
+
+@keyframes flying-heart {
+  0% {
+    opacity: 0;
+    bottom: 0%;
+    left: 0%;
+  }
+  //   10% {
+  //     opacity: 1;
+  //     bottom: 20%;
+  //     left: 70%;
+  //   }
+  20% {
+    bottom: 40%;
+    left: 40%;
+  }
+  //   30% {
+  //     bottom: 60%;
+  //     left: 50%;
+  //   }
+  40% {
+    opacity: 1;
+    // bottom: 20%;
+    left: 500%;
+  }
+  //   48% {
+  //     opacity: 0;
+  //     bottom: 100%;
+  //     left: 60%;
+  //   }
+  100% {
+    opacity: 0;
+    bottom: 4500%;
+    left: 0%;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    filter: drop-shadow(0px 0px 10px nth($colors, 3))
+      drop-shadow(0px 0px 10px nth($colors, 3));
+
+    // text-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+  }
+  100% {
+    filter: drop-shadow(0px 0px 200px nth($colors, 3))
+      drop-shadow(0px 0px 200px nth($colors, 3));
+    // text-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+  }
+}

@@ -65,9 +65,9 @@ div {
 }
 
 body {
-  background-color: var(--body-background-color);
-  color: var(--body-text-color);
+  background-color: nth($colors, 1);
   font-family: $base-font;
+  color: nth($colors, 3);
   @include flex;
   flex-direction: column;
   width: 100vw;
@@ -81,12 +81,14 @@ body {
   outline: none;
   padding: nth($pm, 1) * 0.5 nth($pm, 1);
   transition: nth($trans, 1);
-  background-color: var(--btn-background-color);
-  color: var(--btn-text-color);
+  color: nth($colors, 1);
+  background-color: nth($colors, 3);
 }
 
 .btn:hover {
-  color: #8f8888;
+  width: 30%;
+  //   background-color: nth($colors, 2);
+  //   color: nth($colors, 3);
 }
 
 %inner_placeholders {
@@ -101,8 +103,10 @@ body {
   border-radius: 4px;
   padding-inline: nth($pm, 1) * 0.5;
   width: 100%;
+  background-color: nth($colors, 2);
   overflow: hidden;
 }
+
 %tooltip {
   position: relative;
   &::after {
