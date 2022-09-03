@@ -10,6 +10,7 @@
   bottom: 5%;
   z-index: 2;
   background: nth($colors, 3);
+  transition: nth($trans, 1);
   i {
     color: #000000;
     font-size: 20px;
@@ -18,7 +19,8 @@
 
 // ============== About ==============
 
-.about__container {
+.about__project_container,
+.about__team_container {
   @include flex;
   flex-direction: column;
   width: 80%;

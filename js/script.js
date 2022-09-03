@@ -8,9 +8,15 @@ $(document).ready(() => {
     $(window).scroll(function () {
         var topPos = $(this).scrollTop();
         if (topPos > 100) {
-            scrollToTopIcon.css("opacity", "1");
+            scrollToTopIcon.css({
+                transform: "translateY(0%)",
+                opacity: 1
+            });
         } else {
-            scrollToTopIcon.css("opacity", "0");
+            scrollToTopIcon.css({
+                transform: "translateY(200%)",
+                opacity: 0
+            });
         }
     });
 

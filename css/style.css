@@ -98,6 +98,8 @@ body {
   bottom: 5%;
   z-index: 2;
   background: #ee534f;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
 }
 
 .scrollToTopIcon i {
@@ -105,7 +107,8 @@ body {
   font-size: 20px;
 }
 
-.about__container {
+.about__project_container,
+.about__team_container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -123,7 +126,8 @@ body {
   margin: 2em;
 }
 
-.about__container > * {
+.about__project_container > *,
+.about__team_container > * {
   text-align: center;
 }
 
