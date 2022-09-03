@@ -1,0 +1,32 @@
+// ================= Font ====================
+
+// @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap");
+
+// @import url("https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+// ================= Variables ====================
+
+// $base-font: "Oswald", sans-serif;
+$base-font: "Roboto Serif", serif;
+// $base-font: "Amiri", serif;
+
+$colors: #000, #c1c1c1, #ee534f;
+
+$lh: 2em, 4em, 8em;
+$pm: 1em, 2em, 4em, 8em;
+$trans: 0.2s, 0.5s;
+
+// ================= Mixins ====================
+
+@mixin font($fw: 400, $fs: 1rem, $fc: "inhiret", $deco: none) {
+  font-weight: $fw;
+  font-size: $fs;
+  color: $fc;
+  text-decoration: $deco;
+}
+
+@mixin flex($fx: flex, $align: center, $just: center) {
+  display: $fx;
+  align-items: $align;
+  justify-content: $just;
+}

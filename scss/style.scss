@@ -1,0 +1,247 @@
+@import "./reset";
+
+.projects__parent {
+  width: 100%;
+  padding: 0 5em;
+  min-height: 30em;
+  background: rgb(74, 54, 54);
+  &_container {
+    padding: nth($pm, 2) 0;
+    width: 100%;
+    @include flex($align: start);
+    flex-direction: column;
+    &_wrapper {
+      margin: nth($pm, 1) 0;
+      width: 100%;
+      background: rgb(144, 83, 83);
+      border-radius: 8px;
+      & > a {
+        width: 100%;
+        height: 100%;
+        padding: nth($pm, 1);
+      }
+    }
+  }
+}
+
+// ============== Tabs ==============
+
+:root {
+  --primary-color: #185ee0;
+  --secondary-color: #e6eef9;
+}
+
+.tabs__container {
+  margin: 3em 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tabs {
+  display: flex;
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0 0 1px 0 rgba(#185ee0, 0.15), 0 6px 12px 0 rgba(#185ee0, 0.15);
+  padding: 0.3rem;
+  border-radius: 99px;
+  * {
+    z-index: 2;
+  }
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 54px;
+  width: 150px;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 99px; // just a high number to create pill effect
+  cursor: pointer;
+  transition: color 0.15s ease-in;
+}
+
+.notification {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  margin-left: 0.75rem;
+  border-radius: 50%;
+  background-color: var(--secondary-color);
+  transition: 0.15s ease-in;
+}
+
+input[type="radio"] {
+  &:checked {
+    & + label {
+      color: var(--primary-color);
+      & > .notification {
+        background-color: var(--primary-color);
+        color: #fff;
+      }
+    }
+  }
+}
+
+input[id="radio0"] {
+  &:checked {
+    & ~ .glider {
+      transform: translateX(0);
+    }
+  }
+}
+input[id="radio1"] {
+  &:checked {
+    & ~ .glider {
+      transform: translateX(100%);
+    }
+  }
+}
+
+input[id="radio2"] {
+  &:checked {
+    & ~ .glider {
+      transform: translateX(200%);
+    }
+  }
+}
+
+input[id="radio3"] {
+  &:checked {
+    & ~ .glider {
+      transform: translateX(300%);
+    }
+  }
+}
+
+input[id="radio4"] {
+  &:checked {
+    & ~ .glider {
+      transform: translateX(400%);
+    }
+  }
+}
+
+.glider {
+  position: absolute;
+  display: flex;
+  height: 54px;
+  width: 150px;
+  background-color: var(--secondary-color);
+  z-index: 1;
+  border-radius: 99px; // just a high number to create pill effect
+  transition: 0.25s ease-out;
+}
+
+@media (max-width: 700px) {
+  .tabs {
+    transform: scale(0.6);
+  }
+}
+
+// ============== Project Tile ==============
+
+.story__container {
+  cursor: pointer;
+  height: 100%;
+  @include flex($align: right);
+  margin-bottom: nth($pm, 2);
+  flex-direction: column;
+  width: 100%;
+  background: rgb(60, 60, 60);
+  // background-repeat: no-repeat;
+  background-position: 100%;
+  background-size: cover;
+  color: nth($colors, 2);
+  border-radius: 10px;
+  padding: nth($pm, 2);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: transform opacity nth($trans, 1);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  // &:hover {
+  //   background: url("../assets/team_members/1.JPG");
+  //   background-size: 300%;
+  // }
+  &::after {
+    content: "";
+    height: 100%;
+    width: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.6);
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    transition: nth($trans, 2);
+  }
+  &:hover::after {
+    background: none;
+  }
+  &:hover &_title {
+    transform: translateY(-5em);
+    opacity: 0;
+  }
+  &:hover &_desc {
+    transform: translateY(6em);
+    opacity: 0;
+  }
+  &:hover &_date {
+    transform: translateY(6em);
+    opacity: 0;
+  }
+  &:hover &_tags {
+    transform: translateY(6em);
+    opacity: 0;
+  }
+  &_title {
+    margin-bottom: nth($pm, 1);
+    transition: nth($trans, 2);
+    opacity: 1;
+  }
+  &_desc {
+    transition: nth($trans, 2);
+    opacity: 1;
+  }
+  &_date {
+    transition: nth($trans, 2);
+    opacity: 1;
+    font-style: italic;
+    padding: 0 0 nth($pm, 1) * 0.3;
+  }
+  &_tags {
+    opacity: 1;
+    font-size: 0.8rem;
+    padding: nth($pm, 1) * 0.5 0 0;
+    transition: nth($trans, 2);
+    &_each {
+      font-style: italic;
+    }
+  }
+}
+
+// ============== Footer ==============
+.footer__tail {
+  @include flex;
+  flex-direction: column;
+  padding: nth($pm, 1);
+  &_menu {
+    font-size: 0.6rem;
+    padding: 0 0 nth($pm, 1);
+    &_item {
+      padding-inline: nth($pm, 1);
+      font-weight: 100;
+    }
+  }
+  &_copyrights {
+    text-align: center;
+    font-size: 0.7rem;
+  }
+}
