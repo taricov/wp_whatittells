@@ -71,6 +71,7 @@ body {
   @include flex;
   flex-direction: column;
   width: 100vw;
+  position: relative;
 }
 
 .btn {

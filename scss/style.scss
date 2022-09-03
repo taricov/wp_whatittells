@@ -1,5 +1,21 @@
 @import "./reset";
 
+.scrollToTopIcon {
+  position: fixed;
+  cursor: pointer;
+  border-radius: 10%;
+  padding: nth($pm, 1) * 0.5 nth($pm, 1);
+  background-color: nth($colors, 5);
+  right: 5%;
+  bottom: 5%;
+  z-index: 2;
+  background: nth($colors, 3);
+  i {
+    color: #000000;
+    font-size: 20px;
+  }
+}
+
 // ============== About ==============
 
 .about__container {
