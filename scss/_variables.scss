@@ -28,3 +28,34 @@ $proj_labels: (
   align-items: $align;
   justify-content: $just;
 }
+
+// =============== From the Lagacy website ============
+
+.support__container {
+  width: 100vw;
+  background-color: nth($colors, 1);
+  margin: 0 0 nth($pm, 2);
+  @include flex;
+  flex-direction: column;
+  color: nth($colors, 2);
+  padding: calc(100vw - 95vw);
+
+  &_title {
+    font-size: 4rem;
+    position: relative;
+    color: nth($colors, 2);
+    z-index: 3;
+    &::before {
+      content: "";
+      position: absolute;
+      background-image: url("../assets/mark.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 5rem;
+      height: 5rem;
+      top: -0.3em;
+      right: -1em;
+      z-index: -1;
+    }
+  }
+}
