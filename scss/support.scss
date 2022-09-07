@@ -44,6 +44,8 @@
       box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.313);
       transition: nth($trans, 1);
       cursor: pointer;
+      overflow: hidden;
+      user-select: none;
 
       &_body {
         display: block;
@@ -52,6 +54,12 @@
         border-radius: 3px;
         margin: auto;
         width: fit-content;
+        font-weight: bold;
+      }
+      &_details {
+        @extend .timeline__container_list_item_body;
+        font-weight: 300;
+        display: none;
       }
       &_date {
         display: block;
@@ -68,7 +76,7 @@
         content: attr(data-status);
         position: absolute;
         left: 1rem;
-        top: 20%;
+        top: 2em;
         font-size: 0.5rem;
         padding: 2px 3px;
         border-radius: 3px;
@@ -82,11 +90,17 @@
     }
   }
 }
+.needed_status::after {
+  background-color: rgb(223, 34, 34);
+}
 .present {
   background-color: nth($colors, 3);
   color: nth($colors, 2);
   //   font-size: 21px;
   text-shadow: 1px 1px 30px;
+}
+.present_details {
+  display: block !important;
 }
 .support__donate {
   @include flex;
