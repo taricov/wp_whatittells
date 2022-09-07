@@ -107,32 +107,33 @@
   &_para {
     text-align: center;
     width: 100%;
-    margin: nth($pm, 2) 0;
+    margin: nth($pm, 2) auto;
     span {
       font-size: 2em;
     }
   }
+  &_para2 {
+    text-align: center;
+    width: 100%;
+    margin: nth($pm, 2) auto;
+    width: 70%;
+  }
 }
 
-.apprciated,
-.fst__method,
-.snd__method,
-.third__method {
-  padding: 0 nth($pm, 2);
-  margin: nth($pm, 2) auto;
+.apprciated {
   text-align: center;
   @include flex;
   flex-direction: column;
-}
-.apprciated {
-  &__para {
-  }
+  background-color: nth($colors, 2);
+  //   margin: nth($pm, 1);
+  //   border-radius: 8px;
   &__container {
     display: block;
-    width: 20%;
+    width: 50%;
     &_heart {
       font-size: 4em;
-      width: 6em;
+      margin: auto;
+      width: 3em;
       color: nth($colors, 3);
       animation: pulse 2s infinite;
     }
@@ -152,6 +153,8 @@
 // ============== Footer ==============
 .footer__tail {
   @include flex;
+  background-color: nth($colors, 2);
+  width: 100%;
   flex-direction: column;
   padding: nth($pm, 1);
   &_menu {
