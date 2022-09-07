@@ -169,6 +169,70 @@ body {
   z-index: -1;
 }
 
+.timeline__container {
+  margin: 2em 0;
+  width: 60%;
+}
+
+.timeline__container_list_item {
+  background-color: #d9e6e5;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 12px;
+  margin: 0.2em auto;
+  padding: 0.4em 0.8em;
+  position: relative;
+  width: 100%;
+  -webkit-box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.313);
+          box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.313);
+}
+
+.timeline__container_list_item_body {
+  display: block;
+  padding: 3px 5px;
+  border: none;
+  border-radius: 3px;
+  margin: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.timeline__container_list_item_date {
+  display: block;
+  font-style: italic;
+  padding: 3px 5px;
+  border: none;
+  border-radius: 3px;
+  background-color: #1e5b4d;
+  color: #fff;
+  margin: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.timeline__container_list_item::after {
+  content: attr(data-status);
+  position: absolute;
+  left: 1rem;
+  top: 20%;
+  font-size: 0.5rem;
+  padding: 2px 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.501);
+          box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.501);
+  color: #fff;
+  background-color: #1e5b4d;
+}
+
+.present {
+  font-size: 21px;
+  padding: 4px;
+  text-shadow: 1px 1px 30px;
+}
+
 .support__donate {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -220,117 +284,10 @@ body {
 
 .apprciated__container_heart {
   font-size: 4em;
+  width: 6em;
   color: #1e5b4d;
   -webkit-animation: pulse 2s infinite;
           animation: pulse 2s infinite;
-}
-
-.fst__method {
-  width: 100vw;
-}
-
-.snd__method_txt_examples {
-  color: var(--body-text-color);
-  font-weight: 400;
-  font-size: 0.8rem;
-  color: "inhiret";
-  text-decoration: none;
-  font-style: italic;
-}
-
-.snd__method_form_subscribe {
-  margin: 1em;
-  display: block;
-  text-align: center;
-}
-
-.third__method_txt_examples {
-  font-weight: 400;
-  font-size: 0.8rem;
-  color: "inhiret";
-  text-decoration: none;
-  font-style: italic;
-  color: var(--body-text-color);
-}
-
-.third__method_love_btn {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 100px;
-}
-
-.third__method_heart {
-  display: block;
-  width: 100%;
-}
-
-.third__method_counting {
-  margin: 1em;
-}
-
-.label {
-  position: relative;
-}
-
-.label::before {
-  content: attr(data-num);
-  color: var(--body-text-color);
-  font-weight: 400;
-  font-size: 0.7rem;
-  color: "inhiret";
-  text-decoration: none;
-  position: absolute;
-  top: -0.3em;
-  left: -1em;
-}
-
-@-webkit-keyframes flying-heart {
-  0% {
-    opacity: 0;
-    bottom: 0%;
-    left: 0%;
-  }
-  20% {
-    bottom: 40%;
-    left: 40%;
-  }
-  40% {
-    opacity: 1;
-    left: 500%;
-  }
-  100% {
-    opacity: 0;
-    bottom: 4500%;
-    left: 0%;
-  }
-}
-
-@keyframes flying-heart {
-  0% {
-    opacity: 0;
-    bottom: 0%;
-    left: 0%;
-  }
-  20% {
-    bottom: 40%;
-    left: 40%;
-  }
-  40% {
-    opacity: 1;
-    left: 500%;
-  }
-  100% {
-    opacity: 0;
-    bottom: 4500%;
-    left: 0%;
-  }
 }
 
 @-webkit-keyframes pulse {
@@ -353,5 +310,37 @@ body {
     -webkit-filter: drop-shadow(0px 0px 200px #1e5b4d) drop-shadow(0px 0px 200px #1e5b4d);
             filter: drop-shadow(0px 0px 200px #1e5b4d) drop-shadow(0px 0px 200px #1e5b4d);
   }
+}
+
+.footer__tail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 1em;
+}
+
+.footer__tail_menu {
+  font-size: 0.6rem;
+  padding: 0 0 1em;
+}
+
+.footer__tail_menu_item {
+  padding-inline: 1em;
+  font-weight: 100;
+}
+
+.footer__tail_copyrights {
+  text-align: center;
+  font-size: 0.7rem;
 }
 /*# sourceMappingURL=support.css.map */

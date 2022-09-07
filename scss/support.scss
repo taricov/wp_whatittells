@@ -7,7 +7,6 @@
   flex-direction: column;
   color: nth($colors, 2);
   padding: calc(100vw - 95vw);
-
   &_title {
     font-size: 4rem;
     position: relative;
@@ -28,9 +27,63 @@
   }
 }
 
+.timeline__container {
+  margin: nth($pm, 2) 0;
+  width: 60%;
+  &_list {
+    &_item {
+      background-color: nth($colors, 2);
+      border: none;
+      border-radius: 5px;
+      text-align: center;
+      font-size: 12px;
+      margin: nth($pm, 1) * 0.2 auto;
+      padding: nth($pm, 1) * 0.4 nth($pm, 1) * 0.8;
+      position: relative;
+      width: 100%;
+      box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.313);
+
+      &_body {
+        display: block;
+        padding: 3px 5px;
+        border: none;
+        border-radius: 3px;
+        margin: auto;
+        width: fit-content;
+      }
+      &_date {
+        display: block;
+        font-style: italic;
+        padding: 3px 5px;
+        border: none;
+        border-radius: 3px;
+        background-color: nth($colors, 3);
+        color: nth($colors, 1);
+        margin: auto;
+        width: fit-content;
+      }
+      &::after {
+        content: attr(data-status);
+        position: absolute;
+        left: 1rem;
+        top: 20%;
+        font-size: 0.5rem;
+        padding: 2px 3px;
+        border-radius: 3px;
+        box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.501);
+        color: nth($colors, 1);
+        background-color: nth($colors, 3);
+      }
+    }
+  }
+}
+.present {
+  font-size: 21px;
+  padding: 4px;
+  text-shadow: 1px 1px 30px;
+}
 .support__donate {
   @include flex;
-
   &_para {
     text-align: center;
     width: 100%;
@@ -51,7 +104,6 @@
   @include flex;
   flex-direction: column;
 }
-
 .apprciated {
   &__para {
   }
@@ -60,102 +112,10 @@
     width: 20%;
     &_heart {
       font-size: 4em;
+      width: 6em;
       color: nth($colors, 3);
       animation: pulse 2s infinite;
     }
-  }
-}
-
-.fst__method {
-  width: 100vw;
-  &_coffee {
-  }
-}
-
-.snd__method {
-  &_txt {
-    &_examples {
-      color: var(--body-text-color);
-      @include font($fs: 0.8rem);
-      font-style: italic;
-    }
-  }
-  &_form {
-    &_subscribe {
-      margin: nth($pm, 1);
-      display: block;
-      text-align: center;
-    }
-  }
-}
-
-.third__method {
-  &_txt {
-    &_examples {
-      @include font($fs: 0.8rem);
-      font-style: italic;
-      color: var(--body-text-color);
-    }
-  }
-  &_love_btn {
-    @include flex;
-    width: 100px;
-  }
-
-  &_heart {
-    display: block;
-    width: 100%;
-  }
-  &_counting {
-    margin: nth($pm, 1);
-  }
-}
-
-.label {
-  position: relative;
-  &::before {
-    content: attr(data-num);
-    color: var(--body-text-color);
-    @include font($fs: 0.7rem);
-    position: absolute;
-    top: -0.3em;
-    left: -1em;
-  }
-}
-
-@keyframes flying-heart {
-  0% {
-    opacity: 0;
-    bottom: 0%;
-    left: 0%;
-  }
-  //   10% {
-  //     opacity: 1;
-  //     bottom: 20%;
-  //     left: 70%;
-  //   }
-  20% {
-    bottom: 40%;
-    left: 40%;
-  }
-  //   30% {
-  //     bottom: 60%;
-  //     left: 50%;
-  //   }
-  40% {
-    opacity: 1;
-    // bottom: 20%;
-    left: 500%;
-  }
-  //   48% {
-  //     opacity: 0;
-  //     bottom: 100%;
-  //     left: 60%;
-  //   }
-  100% {
-    opacity: 0;
-    bottom: 4500%;
-    left: 0%;
   }
 }
 
@@ -163,12 +123,27 @@
   0% {
     filter: drop-shadow(0px 0px 10px nth($colors, 3))
       drop-shadow(0px 0px 10px nth($colors, 3));
-
-    // text-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
   }
   100% {
     filter: drop-shadow(0px 0px 200px nth($colors, 3))
       drop-shadow(0px 0px 200px nth($colors, 3));
-    // text-shadow: 0 0 0 20px rgba(0, 0, 0, 0);
+  }
+}
+// ============== Footer ==============
+.footer__tail {
+  @include flex;
+  flex-direction: column;
+  padding: nth($pm, 1);
+  &_menu {
+    font-size: 0.6rem;
+    padding: 0 0 nth($pm, 1);
+    &_item {
+      padding-inline: nth($pm, 1);
+      font-weight: 100;
+    }
+  }
+  &_copyrights {
+    text-align: center;
+    font-size: 0.7rem;
   }
 }
