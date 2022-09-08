@@ -239,19 +239,21 @@ body {
 }
 
 .search__container_bar:focus::-webkit-input-placeholder {
-  padding-left: 50em;
+  -webkit-transform: translateY(-250%);
+          transform: translateY(-250%);
 }
 
 .search__container_bar:focus:-ms-input-placeholder {
-  padding-left: 50em;
+  transform: translateY(-250%);
 }
 
 .search__container_bar:focus::-ms-input-placeholder {
-  padding-left: 50em;
+  transform: translateY(-250%);
 }
 
 .search__container_bar:focus::placeholder {
-  padding-left: 50em;
+  -webkit-transform: translateY(-250%);
+          transform: translateY(-250%);
 }
 
 .scrollToTopIcon {
@@ -743,7 +745,7 @@ input[id="radio4"]:checked ~ .glider {
 }
 
 .form__feedback {
-  width: 50%;
+  width: 70%;
 }
 
 .form__feedback_email {

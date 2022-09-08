@@ -6,6 +6,9 @@
 //TODO: Publish all finished proj
 //TODO: border left stories
 //TODO: responsiveness
+//TODO: proofRead
+//TODO: Form make it work
+
 //TODO: search bar
 
 .search__container {
@@ -31,7 +34,8 @@
       transition: nth($trans, 1);
     }
     &:focus::placeholder {
-      padding-left: 50em;
+      //   padding-left: 50em;
+      transform: translateY(-250%);
     }
   }
 }
@@ -369,7 +373,7 @@ input[id="radio4"] {
   }
 }
 .form__feedback {
-  width: 50%;
+  width: 70%;
   &_email {
     @extend %input_boxes;
     width: 100%;
