@@ -1,4 +1,5 @@
 @import "./reset";
+// @import "./style.scss";
 
 .support__container {
   width: 100vw;
@@ -60,6 +61,9 @@
         @extend .timeline__container_list_item_body;
         font-weight: 300;
         display: none;
+        // & > * {
+        //   display: none;
+        // }
       }
       &_date {
         display: block;
@@ -88,6 +92,9 @@
         transform: scale(0.95);
       }
     }
+    // &_list:last-child {
+    //   background-image: url("https://www.nicepng.com/png/detail/83-839666_feedback-comments-feedback-free-icon-png.png");
+    // }
   }
 }
 .needed_status::after {
@@ -99,8 +106,9 @@
   //   font-size: 21px;
   text-shadow: 1px 1px 30px;
 }
-.present_details {
+.present__details {
   display: block !important;
+  height: fit-content;
 }
 .support__donate {
   @include flex;
@@ -140,6 +148,49 @@
   }
 }
 
+// =================== Form Styling ===========
+
+.form__feedback {
+  width: 50%;
+  font-size: 0.9;
+  margin: nth($pm, 1) 0;
+  &_email {
+    @extend %input_boxes;
+    width: 100%;
+    margin: nth($pm, 1) * 0.4 0;
+    padding: 0.4em;
+    &::placeholder {
+      font-size: 0.8rem;
+      @extend %inner_placeholders;
+    }
+  }
+  &_textarea {
+    @extend %input_boxes;
+    min-height: 5em;
+    padding-top: 0.4em;
+    resize: vertical;
+    &::placeholder {
+      font-size: 0.8rem;
+      @extend %inner_placeholders;
+    }
+  }
+  &_submit {
+    align-self: end;
+    margin: nth($pm, 1) * 0.5 0 0;
+    background-color: nth($colors, 2);
+    color: nth($colors, 3);
+    transition: 0.3s;
+    width: 150px;
+    &:hover {
+      width: 150px;
+    }
+  }
+  &_res {
+    @include font($fs: 0.9rem);
+    margin-inline: nth($pm, 1);
+  }
+}
+
 @keyframes pulse {
   0% {
     filter: drop-shadow(0px 0px 10px nth($colors, 3))
@@ -149,6 +200,12 @@
     filter: drop-shadow(0px 0px 200px nth($colors, 3))
       drop-shadow(0px 0px 200px nth($colors, 3));
   }
+}
+
+.past::after {
+  background-color: gray;
+  color: rgba(255, 255, 255, 0.521);
+  //   mix-blend-mode: hard-light;
 }
 // ============== Footer ==============
 .footer__tail {
