@@ -26,52 +26,64 @@ $(document).ready(() => {
     });
 
 
+    function tabsBar() {
 
+        $("label").click(function () {
 
+            var filterVal = $(this).attr('data-filter');
 
-
-    $("label").click(function () {
-
-        var filterVal = $(this).attr('data-filter');
-
-        $('.projects__parent_container').isotope({
-            filter: filterVal
+            $('.projects__parent_container').isotope({
+                filter: filterVal
+            });
         });
-    });
+    }
 
 
 
     // ==================== Search Bar =======================
 
 
-    function debounce(fn, threshold) {
-        var timeout;
-        return function debounced() {
-            if (timeout) {
-                clearTimeout(timeout);
-            }
-            function delayed() {
-                fn();
-                timeout = null;
-            }
-            timeout = setTimeout(delayed, threshold || 100);
+    var qsRegex;
+    var $grid = $('.projects__parent_container').isotope({
+        itemSelector: '.projects__parent_container_wrapper',
+        layoutMode: 'fitRows',
+        filter: function () {
+            let rez = qsRegex ? $(this).text().match(qsRegex) : true;
+            console.log($grid)
+            return rez
         }
+    });
+
+    function searchInput() {
+        var $quicksearch = $('.search__container_bar').keydown(debounce(function () {
+            if ($(document).scrollTop() != 923) $(document).scrollTop(930)
+            qsRegex = new RegExp($quicksearch.val(), 'gi');
+
+            $grid.isotope();
+        }, 200));
     }
 
-    let query, filterVal;
+    function debounce(fn, threshold) {
+        console.log("any")
 
-    query = new RegExp($('.search__container_bar').val(), 'gi');
-    var searchBar = $('.search__container_bar').keyup(debounce(function () {
-        $('.projects__parent_container').isotope({
-            filter: function () {
-                $this = $(this)
-                let searchResult = query ? $this.text().match(query) : true;
-                console.log($this.text(), searchResult)
-                let projResult = filterVal ? $this.is(filterVal) : true;
-                return searchResult && projResult;
+        var timeout;
+        threshold = threshold || 100;
+        return function debounced() {
+            clearTimeout(timeout);
+            var args = arguments;
+            var _this = this;
+            function delayed() {
+                fn.apply(_this, args);
             }
-        });
-    }))
+            timeout = setTimeout(delayed, threshold);
+        };
+    }
+
+
+    searchInput()
+    tabsBar()
+
+    // ================== Search Bar =============
 
 
 
@@ -79,7 +91,7 @@ $(document).ready(() => {
         if (e.code === 'F3' || ((e.ctrlKey || e.metaKey) && e.code === 'KeyJ')) {
             if (($(".search__container").css("top") == "152.797px")) $(".search__container").css({ top: "-20%" }); else
                 $(".search__container").css({ top: "20%" });
-            // $(".search__container_bar").focus(); 
+            $(".search__container_bar").focus();
             $(".search__container_bar").val("");
         }
 
@@ -105,9 +117,9 @@ $(document).ready(() => {
         // $(".summon__search_container_txt").toggleClass("search__tip")
         if ($this.attr("data-status") == "1") {
             $this.attr("data-status", "0")
-            $this.parent().css({
-                width: "20px",
-                height: "20px",
+            $this.parent().animate({
+                width: "17px",
+                height: "17px",
                 borderRadius: "50%"
             })
         } else if ($this.attr("data-status") == "0") {
