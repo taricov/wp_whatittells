@@ -64,15 +64,25 @@
   height: fit-content;
   width: 100%;
   &_section1 {
-    @include flex($align: flex-end, $just: flex-start);
+    @include flex($align: center, $just: center);
+    flex-direction: column;
     padding: nth($pm, 2) nth($pm, 3);
     height: 570px;
     background-color: nth($colors, 2);
+    .animated__words {
+      width: 100%;
+      padding: nth($pm, 2);
+      text-align: center;
+      @include font($fs: 1.2rem, $fw: 600);
+      margin-top: -3em;
+    }
     .logo {
       svg {
+        margin: auto;
+        width: 40%;
         cursor: pointer;
         &:hover path {
-          fill: rgba(nth($colors, 3), 0.8);
+          fill: rgba(nth($colors, 3), 0.91);
         }
         path {
           transition: nth($trans, 1);

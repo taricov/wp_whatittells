@@ -101,4 +101,101 @@ $(document).ready(() => {
     });
 
 
+
+    //=====================================================================
+    //=====================================================================
+    //========================= Animated Words ============================
+    //=====================================================================
+    //=====================================================================
+
+
+    const prefix = 'It tells ';
+    const skills = ['data differently', 'in stories', 'how data feel', '..'].map(s => `${s}.`);
+    const delay = 20;
+    const step = 1;
+    const tail = 5;
+    const timeout = 20;
+    const p = $('.animated__words');
+    // document.body.appendChild(p);
+    const colors = ['red', 'green', 'blue', 'yellow', 'cyan', 'magenta'];
+
+    function getRandomColor() {
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    function getRandomChar() {
+        return String.fromCharCode(Math.random() * (127 - 33) + 33);
+    }
+
+    function getRandomColoredString(n) {
+        const fragment = $("<span/>");
+
+        for (let i = 0; i < n; i++) {
+            const char = $("<span/>");
+            // char.text(getRandomChar());
+            // char.css({ background: "#1e5b4d", color: "#fff" })
+
+            fragment.append(char);
+        }
+
+        return fragment;
+    }
+
+    const $k = {
+        text: '',
+        prefixP: -tail,
+        skillI: 0,
+        skillP: 0,
+        direction: 'forward',
+        delay,
+        step
+    };
+
+    function render() {
+        const skill = skills[$k.skillI];
+
+        if ($k.step) {
+            $k.step--;
+        } else {
+            $k.step = step;
+
+            if ($k.prefixP < prefix.length) {
+                if ($k.prefixP >= 0) {
+                    $k.text += prefix[$k.prefixP];
+                }
+
+                $k.prefixP++;
+            } else {
+                if ($k.direction === 'forward') {
+                    if ($k.skillP < skill.length) {
+                        $k.text += skill[$k.skillP];
+                        $k.skillP++;
+                    } else {
+                        if ($k.delay) {
+                            $k.delay--;
+                        } else {
+                            $k.direction = 'backward';
+                            $k.delay = delay;
+                        }
+                    }
+                } else {
+                    if ($k.skillP > 0) {
+                        $k.text = $k.text.slice(0, -1);
+                        $k.skillP--;
+                    } else {
+                        $k.skillI = ($k.skillI + 1) % skills.length;
+                        $k.direction = 'forward';
+                    }
+                }
+            }
+        }
+
+        p.text($k.text)
+        p.append(getRandomColoredString($k.prefixP < prefix.length ? Math.min(tail, tail + $k.prefixP) : Math.min(tail, skill.length - $k.skillP)));
+        setTimeout(render, timeout);
+    }
+
+    setTimeout(render, 500);
+
+
 })
