@@ -193,12 +193,13 @@ body {
 
 .search__container {
   position: fixed;
+  z-index: 3;
   display: absolute;
   width: 70%;
   height: 50px;
   background-color: rgba(99, 99, 99, 0.2);
   left: 50%;
-  top: -20%;
+  top: -21%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
   border-radius: 10px;
