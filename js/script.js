@@ -1,5 +1,5 @@
-$(document).ready(() => {
 
+$(document).ready(() => {
     var scrollToTopIcon = $(".scrollToTopIcon");
 
     $(window).scroll(function () {
@@ -100,7 +100,28 @@ $(document).ready(() => {
         }
     });
 
+    $(".summon__search_corner").click(function () {
+        $this = $(this)
+        // $(".summon__search_container_txt").toggleClass("search__tip")
+        if ($this.attr("data-status") == "1") {
+            $this.attr("data-status", "0")
+            $this.parent().css({
+                width: "20px",
+                height: "20px",
+                borderRadius: "50%"
+            })
+        } else if ($this.attr("data-status") == "0") {
+            $this.attr("data-status", "1")
+            $this.parent().css({
+                width: "fit-content",
+                height: "fit-content",
+                borderRadius: "8px"
+            })
+            console.log("cloc")
 
+        }
+        // $(".summon__search_container").slideUp(500)
+    })
 
     //=====================================================================
     //=====================================================================

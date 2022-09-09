@@ -257,6 +257,63 @@ body {
           transform: translateY(-250%);
 }
 
+.summon__search {
+  position: fixed;
+  bottom: 5%;
+  left: 5%;
+  border-radius: 8px;
+  z-index: 3;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  -webkit-box-shadow: 1px 1px 11px rgba(0, 0, 0, 0.3);
+          box-shadow: 1px 1px 11px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.summon__search_corner {
+  background-color: #d9e6e5;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: -8%;
+  left: -5%;
+  cursor: pointer;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.summon__search_corner:hover {
+  background-color: #fff;
+}
+
+.summon__search_container {
+  padding: 1em;
+  background-color: #1e5b4d;
+  color: #d9e6e5;
+}
+
+.summon__search_container_txt {
+  text-align: center;
+  font-weight: 400;
+  font-size: 0.7rem;
+  color: "inhiret";
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.search__tip_container {
+  width: 0px;
+  height: 0px;
+}
+
+.search__tip {
+  opacity: 0;
+}
+
 .scrollToTopIcon {
   position: fixed;
   cursor: pointer;
