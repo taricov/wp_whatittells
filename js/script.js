@@ -3,14 +3,28 @@ $(document).ready(() => {
 
     // ================== Start Helper fn() =========
 
-    function assignVal(selectors, newVals) {
-        $.each(selectors, function (idx, val) {
-            $(selectors[idx]).text(newVals[idx]);
-        });
+    function assignVal(selectors, newVals, isTxt = true, fstIndex = 0) {
+        fstIndex = fstIndex == 0 ? 0 : idx
+        if (isTxt) {
+            $.each($(selectors), function (idx, val) {
+                $(val).text(newVals[fstIndex]);
+                console.log(val, fstIndex)
+            });
+        } else {
+            $.each($(selectors), function (idx, val) {
+                $(val).val(newVals[fstIndex]);
+                console.log(val, fstIndex)
+            });
+        }
     }
-    let vals = ["AWEFS", "FAEWFAE"]
-    let f = [".support_btn", "body > div.tabs__container > div > label.tab.all"]
-    assignVal(f, vals)
+
+    function animateText() {
+        $('#container').animate({ 'opacity': 0 }, 1000, function () {
+            $(this).text('new text');
+        }).animate({ 'opacity': 1 }, 1000);
+    }
+
+
 
     // ================== End Helper fn() =========
 
@@ -40,6 +54,7 @@ $(document).ready(() => {
     });
 
     //============= Search Bar + Tabs Filters ====
+    filters()
     function filters() {
 
         var qsRegex;
@@ -93,8 +108,8 @@ $(document).ready(() => {
             };
         }
     }
-    filters()
     //======== Search Bar Handling ==========
+    revealConcealSearchBar()
     function revealConcealSearchBar() {
 
         $searchContainer = $(".search__container")
@@ -130,8 +145,7 @@ $(document).ready(() => {
         });
 
     }
-    revealConcealSearchBar()
-
+    searchGuide()
     function searchGuide() {
         $(".summon__search_corner").click(function () {
             $this = $(this)
@@ -154,10 +168,10 @@ $(document).ready(() => {
             }
         })
     }
-    searchGuide()
 
 
     //========= Animated Words =======
+    wordAnimation()
     function wordAnimation() {
 
         const prefix = 'It tells ';
@@ -248,9 +262,12 @@ $(document).ready(() => {
 
         setTimeout(render, 500);
     }
-    wordAnimation()
     //========= Send Feedback Form =======
-    // sendEmail()
+    // assignVal([".form__feedback_submit"], [""], 0, false)
+
+
+
+
     function checkEmail() {
         $(".form__feedback_email").change(function () {
             let $this = $(this)
@@ -267,21 +284,21 @@ $(document).ready(() => {
         })
     }
     function sendEmail() {
-
-        $(".form__feedback_submit").val("Sending ...")
+        assignVal([".form__feedback_submit"], ["Send ..."], false)
         emailjs.sendForm('suggestion_form', 'suggestion_template', ".form__feedback", "bp-M-9NPTMdXj0m9w").then(function (response) {
             console.log('SUCCESS!', response.status, response.text);
-            $(".form__feedback_submit").val("Send")
-            $(".form__feedback_textarea").val("")
-            $(".form__feedback_submit").val("")
-            $(".form__feedback_res").val("Sent Successfully, Thank You!")
+
+
+            assignVal([".form__feedback_submit"], ["Send"], false)
+            assignVal([".form__feedback_textarea"], [""], false)
+            assignVal([".form__feedback_res"], ["Sent Successfully, Thank You!"])
         }, function (error) {
             console.log('FAILED...', error);
-            $(".form__feedback_res").val("Something Went Wrong, Try Again!")
+            assignVal([".form__feedback_res"], ["Something Went Wrong, Try Again!"])
 
         });
     }
-
+    // validateForm()
     function validateForm() {
         $(".form__feedback_submit").click(e => {
             e.preventDefault();
