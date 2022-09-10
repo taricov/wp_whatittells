@@ -18,12 +18,11 @@ $(document).ready(() => {
         }
     }
 
-    function animateText() {
-        $('#container').animate({ 'opacity': 0 }, 1000, function () {
-            $(this).text('new text');
-        }).animate({ 'opacity': 1 }, 1000);
-    }
-
+    // function animateText() {
+    //     $('#container').animate({ 'opacity': 0 }, 1000, function () {
+    //         $(this).text('new text');
+    //     }).animate({ 'opacity': 1 }, 1000);
+    // }
 
 
     // ================== End Helper fn() =========
@@ -263,22 +262,22 @@ $(document).ready(() => {
         setTimeout(render, 500);
     }
     //========= Send Feedback Form =======
-    // assignVal([".form__feedback_submit"], [""], 0, false)
 
-
-
-
-    function checkEmail() {
+    emailChecker()
+    function emailChecker() {
         $(".form__feedback_email").change(function () {
             let $this = $(this)
             let pattern = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
             if (!pattern.test($this.val())) {
-                alert('Please provide a valid email address');
+                alert('Please, Provide a Valid Email Address!');
                 $this.focus();
+                $this.css({ border: "2px solid red" })
 
                 return false;
             } else {
+                $this.css
+                    ({ border: "none" })
                 return true
             }
         })
@@ -286,28 +285,27 @@ $(document).ready(() => {
     function sendEmail() {
         assignVal([".form__feedback_submit"], ["Send ..."], false)
         emailjs.sendForm('suggestion_form', 'suggestion_template', ".form__feedback", "bp-M-9NPTMdXj0m9w").then(function (response) {
-            console.log('SUCCESS!', response.status, response.text);
-
 
             assignVal([".form__feedback_submit"], ["Send"], false)
             assignVal([".form__feedback_textarea"], [""], false)
             assignVal([".form__feedback_res"], ["Sent Successfully, Thank You!"])
         }, function (error) {
-            console.log('FAILED...', error);
             assignVal([".form__feedback_res"], ["Something Went Wrong, Try Again!"])
 
         });
     }
-    // validateForm()
+    validateForm()
     function validateForm() {
         $(".form__feedback_submit").click(e => {
             e.preventDefault();
-            if (checkEmail()) {
-                // sendEmail()
+            if (emailChecker()) {
+                sendEmail()
             } else {
+
+                $(".form__feedback_email").focus()
+                assignVal([".form__feedback_res"], ["Please, Provide a Valid Email Address!"])
 
             }
         })
     }
-
 })
