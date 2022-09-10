@@ -1,6 +1,19 @@
 
 $(document).ready(() => {
 
+    // ================== Start Helper fn() =========
+
+    function assignVal(selectors, newVals) {
+        $.each(selectors, function (idx, val) {
+            $(selectors[idx]).text(newVals[idx]);
+        });
+    }
+    let vals = ["AWEFS", "FAEWFAE"]
+    let f = [".support_btn", "body > div.tabs__container > div > label.tab.all"]
+    assignVal(f, vals)
+
+    // ================== End Helper fn() =========
+
     var scrollToTopIcon = $(".scrollToTopIcon");
 
     $(window).scroll(function () {
@@ -236,6 +249,48 @@ $(document).ready(() => {
         setTimeout(render, 500);
     }
     wordAnimation()
+    //========= Send Feedback Form =======
+    // sendEmail()
+    function checkEmail() {
+        $(".form__feedback_email").change(function () {
+            let $this = $(this)
+            let pattern = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
+            if (!pattern.test($this.val())) {
+                alert('Please provide a valid email address');
+                $this.focus();
+
+                return false;
+            } else {
+                return true
+            }
+        })
+    }
+    function sendEmail() {
+
+        $(".form__feedback_submit").val("Sending ...")
+        emailjs.sendForm('suggestion_form', 'suggestion_template', ".form__feedback", "bp-M-9NPTMdXj0m9w").then(function (response) {
+            console.log('SUCCESS!', response.status, response.text);
+            $(".form__feedback_submit").val("Send")
+            $(".form__feedback_textarea").val("")
+            $(".form__feedback_submit").val("")
+            $(".form__feedback_res").val("Sent Successfully, Thank You!")
+        }, function (error) {
+            console.log('FAILED...', error);
+            $(".form__feedback_res").val("Something Went Wrong, Try Again!")
+
+        });
+    }
+
+    function validateForm() {
+        $(".form__feedback_submit").click(e => {
+            e.preventDefault();
+            if (checkEmail()) {
+                // sendEmail()
+            } else {
+
+            }
+        })
+    }
 
 })

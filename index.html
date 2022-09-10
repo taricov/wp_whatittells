@@ -107,8 +107,13 @@
 
 <div class="feedback__container">
    
-    <form onsubmit="" class="form__feedback">
-        <div class="feedback__container_support txt">We would like to hear from you about the project and if there is any idea to get improved:</div><input class="form__feedback_email" type="email" name="user_email" placeholder="Your email"><textarea name="message" class="form__feedback_textarea" placeholder="Send a feedback or any suggestions!"></textarea><input class="form__feedback_submit btn" type="submit" value="Submit"><span class="form__feedback_res"></span></form>
+    <form class="form__feedback">
+        <div class="feedback__container_support txt">We would like to hear from you about the project and if there is any idea to get improved:</div>
+        <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"class="form__feedback_email" name="email" placeholder="Your email">
+        <textarea name="message" class="form__feedback_textarea" placeholder="Send a feedback or any suggestions!"></textarea>
+        <input class="form__feedback_submit btn" type="submit" value="Send">
+        <span class="form__feedback_res"></span>
+    </form>
 </div>
 
 
@@ -122,7 +127,8 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
 <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
 <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
 <script src="./js/script.js"></script>
