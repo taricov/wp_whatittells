@@ -142,6 +142,10 @@ body {
           justify-content: center;
 }
 
+.social svg {
+  width: 1rem;
+}
+
 .team__container {
   background-color: #1e5b4d;
 }
