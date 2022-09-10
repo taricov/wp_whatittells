@@ -174,7 +174,7 @@ $(document).ready(() => {
     function wordAnimation() {
 
         const prefix = 'It tells ';
-        const skills = ['data differently', 'in stories', 'how data feel', '..'].map(s => `${s}.`);
+        const skills = ['data differently', 'the stories behind', 'what really concerns', '..'].map(s => `${s}.`);
         const delay = 20;
         const step = 1;
         const tail = 5;
@@ -261,7 +261,7 @@ $(document).ready(() => {
 
         setTimeout(render, 500);
     }
-    //========= Send Feedback Form =======
+    //========= Send Form =======
 
     emailChecker()
     function emailChecker() {

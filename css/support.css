@@ -189,6 +189,11 @@ body {
   width: 100%;
   background-color: #d9e6e5;
   overflow: hidden;
+  font-weight: 400;
+  font-size: 1rem;
+  color: "inhiret";
+  text-decoration: none;
+  color: #1e5b4d;
 }
 
 .support__container {
@@ -241,7 +246,10 @@ body {
   border: none;
   border-radius: 5px;
   text-align: center;
-  font-size: 12px;
+  font-weight: 400;
+  font-size: 1rem;
+  color: "inhiret";
+  text-decoration: none;
   margin: 0.2em auto;
   padding: 0.4em 0.8em;
   position: relative;
@@ -356,6 +364,7 @@ body {
 
 .apprciated {
   text-align: center;
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

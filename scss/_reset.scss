@@ -105,6 +105,8 @@ body {
   width: 100%;
   background-color: nth($colors, 2);
   overflow: hidden;
+  @include font($fs: 1rem);
+  color: nth($colors, 3);
 }
 
 %tooltip {

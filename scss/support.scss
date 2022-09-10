@@ -37,7 +37,7 @@
       border: none;
       border-radius: 5px;
       text-align: center;
-      font-size: 12px;
+      @include font($fs: 1rem);
       margin: nth($pm, 1) * 0.2 auto;
       padding: nth($pm, 1) * 0.4 nth($pm, 1) * 0.8;
       position: relative;
@@ -130,6 +130,7 @@
 
 .apprciated {
   text-align: center;
+  width: 100%;
   @include flex;
   flex-direction: column;
   background-color: nth($colors, 2);
