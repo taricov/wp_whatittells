@@ -85,10 +85,12 @@ body {
   background-color: nth($colors, 3);
 }
 
-.btn:hover {
-  width: 30%;
-  //   background-color: nth($colors, 2);
-  //   color: nth($colors, 3);
+.btn1:hover {
+  width: 20%;
+  background-color: lighten(nth($colors, 3), 3%);
+}
+.btn2:hover {
+  transform: translateY(-5%);
 }
 
 %inner_placeholders {

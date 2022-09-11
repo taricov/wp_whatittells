@@ -47,7 +47,6 @@
       cursor: pointer;
       overflow: hidden;
       user-select: none;
-
       &_body {
         display: block;
         padding: 3px 5px;
@@ -90,6 +89,9 @@
       }
       &:hover {
         transform: scale(0.95);
+      }
+      &:last-child:hover {
+        transform: scale(1);
       }
     }
     // &_list:last-child {

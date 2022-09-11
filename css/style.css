@@ -125,8 +125,14 @@ body {
   background-color: #1e5b4d;
 }
 
-.btn:hover {
-  width: 30%;
+.btn1:hover {
+  width: 20%;
+  background-color: #226757;
+}
+
+.btn2:hover {
+  -webkit-transform: translateY(-5%);
+          transform: translateY(-5%);
 }
 
 .form__feedback_email::-webkit-input-placeholder, .form__feedback_textarea::-webkit-input-placeholder {
