@@ -90,8 +90,17 @@
       &:hover {
         transform: scale(0.95);
       }
-      &:last-child:hover {
-        transform: scale(1);
+      &:last-child {
+        background-image: url(../assets/imgs/mark.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-blend-mode: difference;
+        background-position-x: 125%;
+        background-position-y: 50px;
+
+        &:hover {
+          transform: scale(1);
+        }
       }
     }
     // &_list:last-child {

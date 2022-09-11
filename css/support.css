@@ -322,6 +322,15 @@ body {
           transform: scale(0.95);
 }
 
+.timeline__container_list_item:last-child {
+  background-image: url(../assets/imgs/mark.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-blend-mode: difference;
+  background-position-x: 125%;
+  background-position-y: 50px;
+}
+
 .timeline__container_list_item:last-child:hover {
   -webkit-transform: scale(1);
           transform: scale(1);
