@@ -106,7 +106,6 @@
   background-color: nth($colors, 3);
   color: nth($colors, 2);
   //   font-size: 21px;
-  text-shadow: 1px 1px 30px;
 }
 .present__details {
   display: block !important;
@@ -157,6 +156,9 @@
   width: 50%;
   font-size: 0.9;
   margin: nth($pm, 1) 0;
+  &_support {
+    @include font($fs: 0.9rem);
+  }
   &_email {
     @extend %input_boxes;
     width: 100%;

@@ -334,7 +334,6 @@ body {
 .present {
   background-color: #1e5b4d;
   color: #d9e6e5;
-  text-shadow: 1px 1px 30px;
 }
 
 .present__details {
@@ -410,6 +409,13 @@ body {
   width: 50%;
   font-size: 0.9;
   margin: 1em 0;
+}
+
+.form__feedback_support {
+  font-weight: 400;
+  font-size: 0.9rem;
+  color: "inhiret";
+  text-decoration: none;
 }
 
 .form__feedback_email {
