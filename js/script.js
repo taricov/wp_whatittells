@@ -174,7 +174,7 @@ $(document).ready(() => {
     function wordAnimation() {
 
         const prefix = 'It tells ';
-        const skills = ['data differently', 'the stories behind', 'what really concerns', '..'].map(s => `${s}.`);
+        const skills = ['data differently', 'and unfolds insights ', 'data stories in context', '..'].map(s => `${s}.`);
         const delay = 20;
         const step = 1;
         const tail = 5;
