@@ -325,14 +325,30 @@ input[id="radio4"] {
   }
 }
 
-.gallery__container {
-  &::after {
-    border-left: 3px solid yellow;
-  }
-  &:hover::after {
-    border-left: 10px solid yellow;
+$sections: (
+  "story": "#6bffdd",
+  "experience": "pink",
+  "gallery": "blue",
+);
+@each $sec, $color in $sections {
+  .#{$sec}__container {
+    &::after {
+      border-left: 3px solid #{$color};
+    }
+    &:hover::after {
+      border-left: 10px solid #{$color};
+    }
   }
 }
+// .gallery__container,
+// .story__container {
+//   &::after {
+//     border-left: 3px solid yellow;
+//   }
+//   &:hover::after {
+//     border-left: 10px solid yellow;
+//   }
+// }
 
 .story__container,
 .experience__container,

@@ -636,12 +636,28 @@ input[id="radio4"]:checked ~ .glider {
   border-left: 10px solid turquoise;
 }
 
+.story__container::after {
+  border-left: 3px solid #6bffdd;
+}
+
+.story__container:hover::after {
+  border-left: 10px solid #6bffdd;
+}
+
+.experience__container::after {
+  border-left: 3px solid pink;
+}
+
+.experience__container:hover::after {
+  border-left: 10px solid pink;
+}
+
 .gallery__container::after {
-  border-left: 3px solid yellow;
+  border-left: 3px solid blue;
 }
 
 .gallery__container:hover::after {
-  border-left: 10px solid yellow;
+  border-left: 10px solid blue;
 }
 
 .story__container,
