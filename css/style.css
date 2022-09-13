@@ -637,27 +637,27 @@ input[id="radio4"]:checked ~ .glider {
 }
 
 .story__container::after {
-  border-left: 3px solid #6bffdd;
+  border-left: 3px solid #B5C2B7;
 }
 
 .story__container:hover::after {
-  border-left: 10px solid #6bffdd;
+  border-left: 10px solid #B5C2B7;
 }
 
 .experience__container::after {
-  border-left: 3px solid pink;
+  border-left: 3px solid #587291;
 }
 
 .experience__container:hover::after {
-  border-left: 10px solid pink;
+  border-left: 10px solid #587291;
 }
 
 .gallery__container::after {
-  border-left: 3px solid blue;
+  border-left: 3px solid #04724D;
 }
 
 .gallery__container:hover::after {
-  border-left: 10px solid blue;
+  border-left: 10px solid #04724D;
 }
 
 .story__container,
