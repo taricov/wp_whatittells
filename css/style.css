@@ -839,6 +839,16 @@ input[id="radio4"]:checked ~ .glider {
   color: "inhiret";
   text-decoration: none;
   color: #d9e6e5;
+  padding: 0 13em;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .feedback__container_support {
@@ -847,7 +857,7 @@ input[id="radio4"]:checked ~ .glider {
 }
 
 .form__feedback {
-  width: 70%;
+  width: 75%;
 }
 
 .form__feedback_email {

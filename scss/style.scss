@@ -434,13 +434,15 @@ $sections: (
   @extend .logo__container_section2;
   @include font($fs: 18px, $fw: 600);
   color: nth($colors, 2);
+  padding: 0 13em;
+  @include flex($align: flex-start);
   &_support {
     width: 100%;
     text-align: left;
   }
 }
 .form__feedback {
-  width: 70%;
+  width: 75%;
   &_email {
     @extend %input_boxes;
     width: 100%;
