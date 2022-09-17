@@ -857,7 +857,7 @@ input[id="radio4"]:checked ~ .glider {
 }
 
 .form__feedback {
-  width: 75%;
+  width: 65%;
 }
 
 .form__feedback_email {

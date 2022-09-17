@@ -442,7 +442,8 @@ $sections: (
   }
 }
 .form__feedback {
-  width: 75%;
+  width: 65%;
+  //   margin: 0 auto;
   &_email {
     @extend %input_boxes;
     width: 100%;
