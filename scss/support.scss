@@ -1,5 +1,11 @@
 @import "./reset";
 
+// Timeline guide:
+// ----------- if status of "li" => is => neeed ≈ red (script: class needed_status added)
+// ----------- if status of "li" => anything else ≈ green
+// ----------- toggle past/present to affect the tag disable/active
+// ----------- add class present__details to change the default view of a tile to opened.
+
 .support__container {
   width: 100vw;
   background-color: nth($colors, 3);
